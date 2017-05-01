@@ -1,0 +1,18 @@
+{
+  "name": "myCSP",
+  "authors": [
+    "Mark <zhouyao0808@gmail.com>"
+  ],
+  "description": "Provide fine-grained CSP for users",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

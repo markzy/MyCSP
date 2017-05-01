@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "MyCSP",
+  "description": "Provide fine-grained CSP for users",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "crawler.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ]
+}

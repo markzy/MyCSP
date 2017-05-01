@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="popup.css">
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+
+    <!-- Your application bootstrap  -->
+    <script src="popup.js"></script>
+
+</head>
+<body ng-app="myCSP" ng-cloak>
+<div ng-controller="PopupController">
+    <div layout="row" layout-align="center center" ng-cloak="">
+
+        <md-switch class="switch" ng-model="switch" md-invert="" ng-change="switchChange()"
+                   aria-label="Switch 7">
+            Apply CSP to This Site
+        </md-switch>
+
+    </div>
+
+    <md-divider></md-divider>
+
+    <div id="main" ng-class="['main']">
+        <div id="disabled" ng-show="!switch"><span class="disable-text">myCSP is disabled on this site</span></div>
+
+        <div layout="row" class="picker" layout-align="center center" layout-wrap>
+            <md-input-container md-no-float="" class="md-block search">
+                <input ng-model="searchText" placeholder="Search links">
+            </md-input-container>
+        </div>
+
+        <md-divider></md-divider>
+
+        <md-list ng-cloak="" class="">
+            <md-subheader class="md-no-sticky">CSP List for {{currentSite}}</md-subheader>
+            <md-list-item ng-class="[site.level,{deleted:!value.wanted}]"
+                          ng-repeat="(key, value) in sites | custom: searchText" ng-click="">
+                <p>{{ key }}</p>
+                <md-checkbox class="md-secondary" ng-model="value.wanted"></md-checkbox>
+
+            </md-list-item>
+        </md-list>
+        <md-divider></md-divider>
+
+        <section layout="row" layout-align="center center" layout-wrap>
+            <md-button class="md-warn" ng-click="clean()">RESET</md-button>
+            <md-button class="md-primary" ng-click="savePolicy()">Save</md-button>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>

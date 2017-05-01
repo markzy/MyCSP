@@ -1,0 +1,88 @@
+html{
+    width: 280px;
+    height: 480px;
+    overflow: hidden;
+}
+body {
+    width: 280px;
+    max-height: 480px;
+    overflow: hidden;
+}
+
+.switch {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.picker span{
+    font-size: 16px;
+}
+md-select {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+md-list {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+md-list-item {
+    /*margin-right: 10px;*/
+}
+
+md-list-item p {
+    font-size: 14px;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+md-list-item.red {
+    background-color: #F63838;
+}
+
+md-list-item.orange {
+    background-color: orange;
+}
+
+md-list-item.deleted {
+    text-decoration: line-through;
+    background-color: grey;
+}
+
+.md-subheader-content{
+    white-space: normal;
+    line-height: 20px;
+}
+
+
+#disabled{
+    text-align: center;
+    display: block;
+    position: absolute;
+    background-color: white;
+    top: 62px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1070;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+    pointer-events: all;
+}
+
+.disable-text{
+    width: 100px;
+    font-size: 18px;
+    line-height: 300px;
+}
+
+.md-errors-spacer{
+    display: none;
+}
+.search{
+    margin: 10px 0;
+}
