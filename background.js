@@ -31,14 +31,29 @@ var callback = function (details) {
       }
     });
 
-    var csp_value = "default-src";
+    // var csp_value = "default-src";
+    var csp = {};
+    var csp_value = "";
+
     var sites = policy[urlPattern].sites;
     for (var key in sites) {
       if (sites[key].wanted) {
-        csp_value += " " + key;
+        if (!(sites[key].rule in csp)) {
+          csp[sites[key].rule] = [];
+        }
+        csp[sites[key].rule].push(key);
       }
     }
-    csp_value += ";";
+
+    for (var rule in csp) {
+      var rule_string = rule;
+      for (var i = 0; i < csp[rule].length; i++) {
+        rule_string += " " + csp[rule][i];
+      }
+      rule_string += ";";
+      csp_value += rule_string;
+    }
+
 
     console.log(csp_value);
 
@@ -47,7 +62,6 @@ var callback = function (details) {
   }
   return {responseHeaders: details.responseHeaders};
 };
-
 
 
 var reload = function () {
